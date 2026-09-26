@@ -1,4 +1,8 @@
 name: build-docs
+
+permissions:
+  contents: write
+
 on:
   push:
     branches: [main]

@@ -1,4 +1,9 @@
 name: contribution-record
+
+permissions:
+  contents: write
+  pull-requests: write
+      
 on:
   schedule:
     - cron: "0 6 1 1,4,7,10 *"   # quarterly
