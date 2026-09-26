@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/usage.schema.json",
+  "title": "Usage record",
+  "type": "object",
+  "required": [
+    "object",
+    "used_by"
+  ],
+  "properties": {
+    "object": {
+      "type": "string"
+    },
+    "used_by": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "confirmed_by_resolution"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "data",
+              "method",
+              "result"
+            ]
+          },
+          "confirmed_by_resolution": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "derived": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

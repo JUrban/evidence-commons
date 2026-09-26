@@ -1,0 +1,22 @@
+id: template:02-computational-reproduction@1
+template: 02-computational-reproduction@1
+claim_type: binary
+test: Re-execution from archived code, data and environment; outputs compared within
+  declared tolerance
+performer_class: any accredited laboratory or service
+success_criterion: Outputs match within declared tolerance
+outcome_map:
+  confirmed: bond returns
+  qualified: 'partial match documented: bond rolls'
+  refuted: bond forfeits
+validity_checks:
+- archived artifacts hash-match the registered provenance
+- environment reconstructed from lockfile
+adjudicator: <named at registration>
+ethics: not required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 2000
+currency: EUR
+expiry: '<P+180D: P = protocol registration date>'

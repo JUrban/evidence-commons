@@ -1,0 +1,37 @@
+id: EC-004
+statement:
+  text: 'The toy market simulation (sim/) is reproducible: re-running with the fixed seeds yields the
+    results in sim/results/ within 1% on every reported metric.'
+  type: binary
+host: org:evidence-commons (repository maintainers)
+provenance:
+- sim/
+- docs/master Appendix I
+protocol:
+  id: p-EC-004
+  template: 02-computational-reproduction@1
+  claim_type: binary
+  test: Fresh environment; python sim_market.py; python sim_cascade.py; diff against sim/results/
+  performer_class: CI on every PR touching sim/
+  success_criterion: All metrics within 1%
+  outcome_map:
+    confirmed: claim stands; README account unchanged
+    qualified: claim revised in the master with a revision-record line
+    refuted: claim withdrawn from the master; account revised
+  validity_checks:
+  - procedure as registered
+  - performer independent of the claim's authors where the test is not mechanical
+  adjudicator: repository maintainer not authoring the claim; else an outside reviewer named on the issue
+  ethics: not required
+  screening:
+    service: n/a
+    status: not_required
+  cost_estimate: 50
+  currency: EUR
+  expiry: '2027-12-31'
+contributions: not established
+relies_on: []
+status:
+- registered
+licence: CC-BY-4.0
+registered: '2026-09-26'

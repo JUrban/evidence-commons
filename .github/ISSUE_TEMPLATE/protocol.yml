@@ -1,0 +1,16 @@
+name: Protocol template
+description: Propose a new resolution-protocol template for templates/protocols/
+title: "[protocol] <claim type>"
+labels: ["protocol"]
+body:
+  - type: textarea
+    id: claim_type
+    attributes: { label: Claim type this template settles }
+    validations: { required: true }
+  - type: textarea
+    id: template
+    attributes: { label: Template (YAML), description: "Follow templates/protocols/*.yaml: test, performer_class, success_criterion, outcome_map, validity_checks, ethics, cost_estimate, expiry" }
+    validations: { required: true }
+  - type: textarea
+    id: fields
+    attributes: { label: Fields where it applies }

@@ -1,0 +1,71 @@
+id: c47
+statement:
+  text: Adding 2% of additive Q to a standard lithium-ion electrolyte halves capacity loss over 1,000
+    charge cycles.
+  type: scalar
+  scope:
+    population: LP30 electrolyte, NMC811/graphite cells
+    conditions: 25 C, 1C/1C, 2.8-4.2 V
+    comparator: no additive
+    effect: capacity-loss reduction, percent
+    units: '%'
+    uncertainty: +-8
+host: org:H
+authorization:
+  actor: workflow:W-3
+  scope: register claims in materials/electrolytes
+  expiry: '2031-12-31'
+provenance:
+- data:d47-cycles
+- code:w3-analysis@2.4.1
+- instrument:bench-7
+log:
+  id: L-47
+  level: 3
+  disclosure: contributions only
+protocol:
+  id: p47
+  template: 05-laboratory-replication@2
+  claim_type: scalar
+  test: independent synthesis and 1,000-cycle test, 3 cells, fresh batch
+  performer_class: accredited laboratory, template-5 ledger >= 0.8
+  success_criterion: mean capacity-loss reduction >= 35% vs control
+  outcome_map:
+    confirmed: '>=35%: bond returns'
+    qualified: '10-35%: bond rolls to revised claim'
+    refuted: '<10%: bond forfeits'
+  validity_checks:
+  - cell provenance
+  - reference-material calibration
+  - blinded analysis
+  adjudicator: adj:S-2
+  ethics: none required
+  screening:
+    service: scr:K-1
+    status: cleared
+  cost_estimate: 20000
+  currency: EUR
+  expiry: '2032-01-04'
+bond:
+  amount: 2000
+  currency: EUR
+  term_months: 36
+  escrow: E-1
+market:
+  id: m47
+  b: 577
+  subsidy: 400
+  resolution_fund: rf47
+contributions: cr47
+relies_on:
+- id: c31
+  type: data
+  confirmed: true
+- id: c12
+  type: method
+  confirmed: true
+status:
+- resolved:qualified
+- superseded_by:c47b
+licence: CC-BY-4.0
+registered: '2031-01-04'

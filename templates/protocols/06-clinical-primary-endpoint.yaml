@@ -1,0 +1,23 @@
+id: template:06-clinical-primary-endpoint@1
+template: 06-clinical-primary-endpoint@1
+claim_type: binary
+test: Confirmatory trial, or independent reanalysis of patient-level data by a statistician
+  not involved in the trial, on the pre-specified primary endpoint
+performer_class: independent statistician; trial group
+success_criterion: Pre-specified primary endpoint met
+outcome_map:
+  confirmed: results bond returns
+  qualified: 'endpoint met in pre-specified subgroup only: bond rolls'
+  refuted: 'endpoint not met: results bond forfeits'
+validity_checks:
+- endpoint as registered before unblinding
+- no post-hoc subgroup
+- sponsor not trading (constitutional)
+adjudicator: <named at registration>
+ethics: ethics approval required; sponsor barred from trading
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 100000
+currency: EUR
+expiry: '<P+1460D: P = protocol registration date>'

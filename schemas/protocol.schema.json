@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/protocol.schema.json",
+  "title": "Resolution protocol",
+  "type": "object",
+  "required": [
+    "id",
+    "claim_type",
+    "test",
+    "performer_class",
+    "success_criterion",
+    "outcome_map",
+    "validity_checks",
+    "cost_estimate",
+    "expiry"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "template": {
+      "type": "string",
+      "description": "template id and version, e.g. 05-laboratory-replication@2"
+    },
+    "claim_type": {
+      "enum": [
+        "binary",
+        "scalar",
+        "conditional",
+        "multi-outcome",
+        "formal"
+      ]
+    },
+    "test": {
+      "type": "string"
+    },
+    "performer_class": {
+      "type": "string"
+    },
+    "success_criterion": {
+      "type": "string"
+    },
+    "outcome_map": {
+      "type": "object",
+      "required": [
+        "confirmed",
+        "refuted"
+      ],
+      "properties": {
+        "confirmed": {
+          "type": "string"
+        },
+        "qualified": {
+          "type": "string"
+        },
+        "refuted": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "validity_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "adjudicator": {
+      "type": "string"
+    },
+    "ethics": {
+      "type": "string"
+    },
+    "screening": {
+      "type": "object",
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "cleared",
+            "blocked",
+            "not_required"
+          ]
+        }
+      }
+    },
+    "cost_estimate": {
+      "type": "number",
+      "minimum": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "EUR"
+    },
+    "expiry": {
+      "type": "string",
+      "format": "date"
+    },
+    "amendments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "change"
+        ],
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "change": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

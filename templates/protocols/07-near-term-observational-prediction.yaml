@@ -1,0 +1,21 @@
+id: template:07-near-term-observational-prediction@1
+template: 07-near-term-observational-prediction@1
+claim_type: scalar
+test: Comparison with the next scheduled data release of the named observable
+performer_class: data custodian
+success_criterion: Prediction within the stated interval
+outcome_map:
+  confirmed: bond returns
+  qualified: 'within 2x interval: bond rolls'
+  refuted: 'outside 2x interval: bond forfeits'
+validity_checks:
+- data release version recorded
+- prediction registered before release
+adjudicator: <named at registration>
+ethics: not required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 500
+currency: EUR
+expiry: '<release date + 30D: P = protocol registration date>'

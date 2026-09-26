@@ -1,0 +1,26 @@
+id: c47b
+statement:
+  text: Adding 2% of additive Q to a standard lithium-ion electrolyte reduces capacity loss over 1,000
+    charge cycles by at least 15%.
+  type: scalar
+host: org:H
+protocol: p47
+bond:
+  amount: 2000
+  currency: EUR
+  term_months: 36
+  escrow: E-1
+market:
+  id: m47b
+  b: 577
+  subsidy: 400
+  resolution_fund: rf47b
+contributions: cr47
+relies_on:
+- id: c47
+  type: result
+  confirmed: true
+status:
+- registered
+- priced
+registered: '2031-06-18'

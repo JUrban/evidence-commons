@@ -1,0 +1,23 @@
+id: template:03-formal-theorem@1
+template: 03-formal-theorem@1
+claim_type: formal
+test: Proof check in the named proof assistant with declared trust base (kernel, axioms,
+  unverified components), plus an independent fidelity check that the formal statement
+  matches the registered informal statement
+performer_class: named checker; independent reader for fidelity
+success_criterion: Check passes and fidelity confirmed
+outcome_map:
+  confirmed: bond returns
+  qualified: 'check passes, fidelity disputed: unpriceable pending restatement'
+  refuted: 'check fails or counterexample: bond forfeits'
+validity_checks:
+- trust base declared and matches the check log
+- fidelity reader has no role in the proof
+adjudicator: <named at registration>
+ethics: not required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 300
+currency: EUR
+expiry: '<P+30D: P = protocol registration date>'

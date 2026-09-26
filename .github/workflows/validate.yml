@@ -1,0 +1,16 @@
+name: validate
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -e tools[test]
+      - name: Validate records against schemas
+        run: ec validate records templates/protocols
+      - name: Run tests
+        run: cd tools && pytest -q
+      - name: Consistency scan on documents
+        run: python build/check_consistency.py docs/master/price-trust-full-proposal.md docs/short/*.md

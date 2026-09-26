@@ -1,0 +1,20 @@
+id: a47-r
+claim: c47
+protocol: p47
+performer: lab:OS
+auction_price: 15800
+procedure: p47 as registered; 3 cells; reference material RM-E12
+result: 'mean reduction 22% (cells: 19, 24, 23)'
+measured: 22
+outcome: qualified
+validity_checks:
+  cell provenance: passed
+  reference-material calibration: passed
+  blinded analysis: passed
+adjudicator: adj:S-2
+conflicts: none
+dependencies:
+- RM-E12
+- w3-analysis@2.4.1 re-run independently
+date: '2031-06-18'
+reopenable: true

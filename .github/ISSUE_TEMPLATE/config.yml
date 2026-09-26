@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the proposal first
+    url: https://github.com/<org>/evidence-commons/blob/main/docs/short/summary-3-page.md
+    about: The 3-page summary; the 85-page master is in docs/master/

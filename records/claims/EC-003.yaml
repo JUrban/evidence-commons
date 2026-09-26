@@ -1,0 +1,41 @@
+id: EC-003
+statement:
+  text: A forecaster ledger needs at least 300 resolved positions before its split-half reliability exceeds
+    0.4.
+  type: binary
+host: org:evidence-commons (repository maintainers)
+provenance:
+- sim/results/sim_results.json (ledger_curve)
+- docs/master Section 33.2
+protocol:
+  id: p-EC-003
+  template: 02-computational-reproduction@1
+  claim_type: binary
+  test: Re-run the ledger curve in sim/sim_market.py; then compute split-half reliability on real pilot
+    ledgers by position count
+  performer_class: any accredited laboratory or CI
+  success_criterion: Split-half rho < 0.4 below 300 positions and >= 0.4 at or above, in simulation and
+    on pilot ledgers
+  outcome_map:
+    confirmed: claim stands; README account unchanged
+    qualified: claim revised in the master with a revision-record line
+    refuted: claim withdrawn from the master; account revised
+  validity_checks:
+  - procedure as registered
+  - performer independent of the claim's authors where the test is not mechanical
+  adjudicator: repository maintainer not authoring the claim; else an outside reviewer named on the issue
+  ethics: not required
+  screening:
+    service: n/a
+    status: not_required
+  cost_estimate: 500
+  currency: EUR
+  expiry: '2027-12-31'
+contributions: not established
+relies_on:
+- id: EC-004
+  type: method
+status:
+- registered
+licence: CC-BY-4.0
+registered: '2026-09-26'

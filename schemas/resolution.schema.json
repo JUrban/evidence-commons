@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/resolution.schema.json",
+  "title": "Resolution (assessment of type adjudication)",
+  "type": "object",
+  "required": [
+    "id",
+    "claim",
+    "protocol",
+    "performer",
+    "procedure",
+    "result",
+    "outcome",
+    "adjudicator",
+    "date"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "performer": {
+      "type": "string"
+    },
+    "auction_price": {
+      "type": "number"
+    },
+    "procedure": {
+      "type": "string"
+    },
+    "result": {
+      "type": "string"
+    },
+    "measured": {
+      "type": "number"
+    },
+    "outcome": {
+      "enum": [
+        "confirmed",
+        "qualified",
+        "refuted",
+        "inconclusive"
+      ]
+    },
+    "validity_checks": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": [
+          "passed",
+          "failed",
+          "not_applicable"
+        ]
+      }
+    },
+    "adjudicator": {
+      "type": "string"
+    },
+    "conflicts": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "date": {
+      "type": "string"
+    },
+    "reopenable": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "additionalProperties": false
+}

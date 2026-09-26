@@ -1,0 +1,39 @@
+id: EC-002
+statement:
+  text: Selecting claims for resolution by confirmed reliance times price uncertainty captures at least
+    five times the reliance-weighted uncertainty of random selection of the same size.
+  type: binary
+host: org:evidence-commons (repository maintainers)
+provenance:
+- sim/results/sim_results.json
+protocol:
+  id: p-EC-002
+  template: 02-computational-reproduction@1
+  claim_type: binary
+  test: Re-run sim/sim_market.py; compare allocation rows; then test on Pilot A's own resolutions
+  performer_class: any accredited laboratory or CI
+  success_criterion: Ratio >= 5 in simulation (observed 24x); confirmed on pilot data with permutation
+    test p<0.05
+  outcome_map:
+    confirmed: claim stands; README account unchanged
+    qualified: claim revised in the master with a revision-record line
+    refuted: claim withdrawn from the master; account revised
+  validity_checks:
+  - procedure as registered
+  - performer independent of the claim's authors where the test is not mechanical
+  adjudicator: repository maintainer not authoring the claim; else an outside reviewer named on the issue
+  ethics: not required
+  screening:
+    service: n/a
+    status: not_required
+  cost_estimate: 500
+  currency: EUR
+  expiry: '2027-12-31'
+contributions: not established
+relies_on:
+- id: EC-004
+  type: method
+status:
+- registered
+licence: CC-BY-4.0
+registered: '2026-09-26'

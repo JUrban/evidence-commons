@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/claim.schema.json",
+  "title": "Claim record",
+  "type": "object",
+  "required": [
+    "id",
+    "statement",
+    "host",
+    "protocol",
+    "status",
+    "registered"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]+$"
+    },
+    "statement": {
+      "type": "object",
+      "required": [
+        "text",
+        "type"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "binary",
+            "scalar",
+            "conditional",
+            "multi-outcome",
+            "formal"
+          ]
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "formal": {
+          "type": "object",
+          "properties": {
+            "system": {
+              "type": "string"
+            },
+            "statement": {
+              "type": "string"
+            },
+            "trust_base": {
+              "type": "string"
+            },
+            "informal_reference": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "host": {
+      "type": "string"
+    },
+    "authorization": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "expiry": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "log": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "disclosure": {
+          "type": "string"
+        }
+      }
+    },
+    "protocol": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "protocol.schema.json"
+        }
+      ]
+    },
+    "bond": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "term_months": {
+          "type": "integer"
+        },
+        "escrow": {
+          "type": "string"
+        }
+      }
+    },
+    "market": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "b": {
+          "type": "number"
+        },
+        "subsidy": {
+          "type": "number"
+        },
+        "resolution_fund": {
+          "type": "string"
+        }
+      }
+    },
+    "contributions": {
+      "type": "string",
+      "description": "contribution record id, or the literal 'not established'"
+    },
+    "relies_on": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "data",
+              "method",
+              "result"
+            ]
+          },
+          "confirmed": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(registered|priced|resolution_commissioned|resolved:(confirmed|qualified|refuted)|challenged|superseded_by:.+|unpriceable:.+|unresolved_expired)$"
+      },
+      "minItems": 1
+    },
+    "licence": {
+      "type": "string"
+    },
+    "registered": {
+      "type": "string"
+    },
+    "anchoring": {
+      "type": "string",
+      "description": "external timestamp proof, if any"
+    }
+  },
+  "additionalProperties": false
+}

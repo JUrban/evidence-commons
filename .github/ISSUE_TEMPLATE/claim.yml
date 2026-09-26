@@ -1,0 +1,41 @@
+name: Claim
+description: Register a claim with a resolution protocol (mirrors records/claims/*.yaml)
+title: "[claim] <scoped statement>"
+labels: ["claim"]
+body:
+  - type: input
+    id: claim_id
+    attributes: { label: Claim id, description: "Short id, e.g. EC-007; the YAML file will use it", placeholder: EC-007 }
+    validations: { required: true }
+  - type: textarea
+    id: statement
+    attributes: { label: Statement, description: "Scoped: population, conditions, comparator, effect, uncertainty" }
+    validations: { required: true }
+  - type: dropdown
+    id: claim_type
+    attributes: { label: Claim type, options: [binary, scalar, conditional, multi-outcome, formal] }
+    validations: { required: true }
+  - type: dropdown
+    id: template
+    attributes: { label: Resolution-protocol template, options: ["01 benchmark held-out", "02 computational reproduction", "03 formal theorem", "04 online behavioral replication", "05 laboratory replication", "06 clinical primary endpoint", "07 near-term observational prediction", "08 long-dated projection", "09 dataset or tool audit", "10 conjecture", "custom (describe below)"] }
+    validations: { required: true }
+  - type: textarea
+    id: protocol
+    attributes: { label: Resolution protocol, description: "What test settles it, who may run it, success criterion, validity checks, adjudicator, cost estimate, expiry" }
+    validations: { required: true }
+  - type: input
+    id: host
+    attributes: { label: Host (accountable organization or person) }
+    validations: { required: true }
+  - type: textarea
+    id: provenance
+    attributes: { label: Provenance, description: "Data, code, sections of the document, simulation results the claim rests on" }
+  - type: textarea
+    id: relies_on
+    attributes: { label: Relies on, description: "Other claim ids this claim depends on (data | method | result)" }
+  - type: checkboxes
+    id: yaml
+    attributes:
+      label: Record
+      options:
+        - label: I will add (or have added) the YAML record under records/claims/ in a PR

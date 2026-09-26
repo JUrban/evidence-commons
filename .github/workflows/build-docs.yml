@@ -1,0 +1,17 @@
+name: build-docs
+on:
+  push:
+    paths: ["docs/**", "build/**"]
+  pull_request:
+    paths: ["docs/**", "build/**"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y pandoc wkhtmltopdf fonts-dejavu
+      - run: bash build/build.sh docs/master/price-trust-full-proposal.md out/full-proposal.pdf
+      - run: bash build/build.sh docs/short/summary-3-page.md out/summary-3-page.pdf
+      - run: bash build/build.sh docs/short/explainer-9-page.md out/explainer-9-page.pdf
+      - uses: actions/upload-artifact@v4
+        with: { name: pdfs, path: out/*.pdf }

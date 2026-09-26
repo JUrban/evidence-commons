@@ -1,0 +1,36 @@
+id: EC-007
+statement:
+  text: Registering a claim with a resolution protocol from the template library takes a median of under
+    fifteen minutes for a researcher who has done it once.
+  type: scalar
+host: org:evidence-commons (repository maintainers)
+provenance:
+- docs/master Section 8
+protocol:
+  id: p-EC-007
+  template: 02-computational-reproduction@1
+  claim_type: scalar
+  test: Instrumented timing of registrations in Phase 3 (pilots/runbook-phase3.md), n >= 30
+  performer_class: Phase 3 coordinator
+  success_criterion: Median < 15 minutes
+  outcome_map:
+    confirmed: claim stands; README account unchanged
+    qualified: claim revised in the master with a revision-record line
+    refuted: claim withdrawn from the master; account revised
+  validity_checks:
+  - procedure as registered
+  - performer independent of the claim's authors where the test is not mechanical
+  adjudicator: repository maintainer not authoring the claim; else an outside reviewer named on the issue
+  ethics: not required
+  screening:
+    service: n/a
+    status: not_required
+  cost_estimate: 500
+  currency: EUR
+  expiry: '2027-06-30'
+contributions: not established
+relies_on: []
+status:
+- registered
+licence: CC-BY-4.0
+registered: '2026-09-26'

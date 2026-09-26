@@ -1,0 +1,23 @@
+id: template:05-laboratory-replication@1
+template: 05-laboratory-replication@1
+claim_type: scalar
+test: Independent synthesis and characterization with reference materials and blinded
+  analysis, per the registered procedure
+performer_class: accredited or cloud laboratory with template-5 ledger >= 0.8
+success_criterion: Property within stated tolerance of the claimed value
+outcome_map:
+  confirmed: bond returns
+  qualified: '10-35% of claimed effect: bond rolls to revised claim'
+  refuted: 'below 10%: bond forfeits'
+validity_checks:
+- sample provenance
+- reference-material calibration
+- blinded analysis
+adjudicator: <named at registration>
+ethics: screening required for hazardous materials
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 20000
+currency: EUR
+expiry: '<P+365D: P = protocol registration date>'

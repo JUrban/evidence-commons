@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/market.schema.json",
+  "title": "Market record",
+  "type": "object",
+  "required": [
+    "id",
+    "claim",
+    "contract",
+    "maker",
+    "fee_rate",
+    "position_limit",
+    "resolution_fund",
+    "trades"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "contract": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "binary",
+            "scalar",
+            "conditional",
+            "multi"
+          ]
+        },
+        "units": {
+          "type": "string"
+        },
+        "buckets": {
+          "type": "array",
+          "items": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "maker": {
+      "type": "object",
+      "required": [
+        "rule",
+        "b",
+        "subsidy"
+      ],
+      "properties": {
+        "rule": {
+          "const": "LMSR"
+        },
+        "b": {
+          "type": "number"
+        },
+        "subsidy": {
+          "type": "number"
+        },
+        "funder": {
+          "type": "string"
+        }
+      }
+    },
+    "fee_rate": {
+      "type": "number"
+    },
+    "position_limit": {
+      "type": "number",
+      "description": "net contracts per principal, absolute"
+    },
+    "resolution_fund": {
+      "type": "object",
+      "required": [
+        "balance",
+        "base_allocation",
+        "fees",
+        "direct"
+      ],
+      "properties": {
+        "balance": {
+          "type": "number"
+        },
+        "base_allocation": {
+          "type": "number"
+        },
+        "fees": {
+          "type": "number"
+        },
+        "direct": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "threshold": {
+          "type": "number"
+        }
+      }
+    },
+    "trades": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "principal",
+          "side",
+          "size",
+          "price",
+          "time"
+        ],
+        "properties": {
+          "principal": {
+            "type": "string"
+          },
+          "agent": {
+            "type": "string"
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "sell"
+            ]
+          },
+          "size": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          },
+          "forecast": {
+            "type": "number"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "settlement": {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "adjudication": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

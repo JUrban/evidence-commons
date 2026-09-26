@@ -1,0 +1,24 @@
+name: simulation
+on:
+  pull_request:
+    paths: ["sim/**"]
+jobs:
+  rerun:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install numpy scipy matplotlib
+      - run: cd sim && python sim_market.py > market.log && python sim_cascade.py > cascade.log
+      - name: Post results as PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const r = JSON.parse(fs.readFileSync('sim/results/sim_results.json','utf8'));
+            const c = JSON.parse(fs.readFileSync('sim/results/sim_cascade.json','utf8'));
+            const body = `**Simulation re-run**\n\n| metric | value |\n|---|---|\n| market Brier | ${r.brier_market} |\n| citation baseline Brier | ${r.brier_citation} |\n| share priced | ${r.share_priced} |\n| uncertainty captured (open interest) | ${r.alloc["open interest"][0]} |\n| manipulation final shift (limits) | ${r.manip_final_lim} |\n| premium contested / trivial | ${r.premium_contested} / ${r.premium_trivial} |\n| cascade: flagged by descendants / random | ${c.flagged_by_descendants} / ${c.flagged_random} |\n\nFigures are in the workflow artifacts.`;
+            await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });
+      - uses: actions/upload-artifact@v4
+        with: { name: sim-figures, path: sim/figures/*.png }

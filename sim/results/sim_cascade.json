@@ -1,0 +1,9 @@
+{
+ "total_false": 2251,
+ "dependents_on_false": 2749,
+ "flagged_random": 535,
+ "flagged_by_indegree": 2291,
+ "flagged_by_descendants": 2306,
+ "share_claims_with_any_dependents": 0.3408,
+ "top1pct_share_of_dependents": 0.6217517808768938
+}

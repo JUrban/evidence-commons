@@ -1,0 +1,22 @@
+id: template:09-dataset-or-tool-audit@1
+template: 09-dataset-or-tool-audit@1
+claim_type: binary
+test: Independent audit of the resource for the claimed property (completeness, error
+  rate, reproducibility of its outputs)
+performer_class: accredited auditor
+success_criterion: Claimed property confirmed
+outcome_map:
+  confirmed: bond returns
+  qualified: 'property holds with documented exceptions: bond rolls'
+  refuted: 'property fails: bond forfeits'
+validity_checks:
+- auditor independent of the maintainer
+- audit procedure registered before access
+adjudicator: <named at registration>
+ethics: not required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 5000
+currency: EUR
+expiry: '<P+180D: P = protocol registration date>'

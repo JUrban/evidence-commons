@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "Price Trust, Record Contribution, Pay for Value: organizing science when AI does most of the work"
+message: "If you use this proposal, cite the master document and the version tag."
+type: software
+version: "3.4"
+date-released: "2026-09-26"
+repository-code: "https://github.com/<org>/evidence-commons"
+license: "CC-BY-4.0 (text), Apache-2.0 (code)"
+authors:
+  - name: "Evidence Commons contributors"

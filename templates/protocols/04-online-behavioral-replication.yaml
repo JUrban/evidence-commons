@@ -1,0 +1,24 @@
+id: template:04-online-behavioral-replication@1
+template: 04-online-behavioral-replication@1
+claim_type: scalar
+test: Preregistered replication with power >= 0.9 to detect half the original effect,
+  in the stated population
+performer_class: accredited replication laboratory
+success_criterion: Effect in the same direction with confidence interval excluding
+  zero; scalar effect size recorded
+outcome_map:
+  confirmed: 'effect >= 50% of claimed: bond returns'
+  qualified: 'effect 20-50% of claimed: bond rolls'
+  refuted: 'effect < 20% or wrong sign: bond forfeits'
+validity_checks:
+- preregistration hash matches
+- sample drawn from stated population
+- analysis code independent of original
+adjudicator: <named at registration>
+ethics: IRB or equivalent approval required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 12000
+currency: EUR
+expiry: '<P+365D: P = protocol registration date>'

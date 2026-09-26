@@ -1,0 +1,26 @@
+name: Challenge
+description: Challenge a registered claim with an alleged defect and a test
+title: "[challenge] <claim id>: <alleged defect>"
+labels: ["challenge"]
+body:
+  - type: input
+    id: target
+    attributes: { label: Target claim id, placeholder: EC-003 }
+    validations: { required: true }
+  - type: textarea
+    id: defect
+    attributes: { label: Alleged defect, description: "What is wrong, specifically" }
+    validations: { required: true }
+  - type: textarea
+    id: test
+    attributes: { label: Test, description: "A reproducible procedure or artifact that would sustain the challenge — a re-run, a counterexample, a re-analysis" }
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes: { label: Evidence supplied now, description: "Link or attach; a challenge with a reproducible artifact is adjudicated first" }
+  - type: checkboxes
+    id: conflicts
+    attributes:
+      label: Conflicts
+      options:
+        - label: I have no undisclosed conflict with the claim's host or the outcome

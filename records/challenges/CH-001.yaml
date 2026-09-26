@@ -1,0 +1,16 @@
+id: CH-001
+target: EC-002
+defect: The 24x figure depends on attention tracking reliance; with uniform attention the simulation's
+  own sensitivity sweep shows open-interest selection captures only 2%.
+test: Re-run sim_market.py with look_p uniform; confirm allocation by open interest collapses; check that
+  EC-002 is stated in terms of confirmed reliance, not open interest
+evidence:
+- sim/results/sim_sensitivity.json
+challenger: maintainer (self-challenge during consistency sweep)
+stake: 0
+filed: '2026-09-26'
+outcome: sustained
+adjudicator: maintainer
+decided: '2026-09-26'
+reasons: 'Sustained: the master''s priority rule was changed in round 11 to confirmed reliance x uncertainty;
+  EC-002 is worded accordingly and records the dependency on EC-004.'

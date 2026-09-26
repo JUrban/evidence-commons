@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/assessment.schema.json",
+  "title": "Assessment record",
+  "type": "object",
+  "required": [
+    "id",
+    "subject",
+    "type",
+    "procedure",
+    "result",
+    "operator",
+    "date"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "adjudication",
+        "replay_audit",
+        "screening",
+        "fidelity_check",
+        "structured_panel_forecast",
+        "computational_reproduction",
+        "other"
+      ]
+    },
+    "procedure": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "result": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    },
+    "operator": {
+      "type": "string"
+    },
+    "conflicts": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "date": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

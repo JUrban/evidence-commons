@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/workflow_log.schema.json",
+  "title": "Workflow log (flight recorder)",
+  "type": "object",
+  "required": [
+    "id",
+    "level",
+    "entries",
+    "checkpoints"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "researcher_key": {
+      "type": "string"
+    },
+    "workspace_key": {
+      "type": "string"
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "seq",
+          "type",
+          "time",
+          "actor",
+          "content_hash",
+          "prev_hash"
+        ],
+        "properties": {
+          "seq": {
+            "type": "integer"
+          },
+          "type": {
+            "enum": [
+              "prompt",
+              "model_output",
+              "human_edit",
+              "decision",
+              "data_access",
+              "tool_call",
+              "environment"
+            ]
+          },
+          "time": {
+            "type": "string"
+          },
+          "actor": {
+            "type": "string"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "prev_hash": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "checkpoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "range",
+          "merkle_root",
+          "signature"
+        ],
+        "properties": {
+          "range": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "merkle_root": {
+            "type": "string"
+          },
+          "signature": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          },
+          "attestation": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "disclosure": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

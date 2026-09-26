@@ -1,0 +1,20 @@
+name: contribution-record
+on:
+  schedule:
+    - cron: "0 6 1 1,4,7,10 *"   # quarterly
+  workflow_dispatch:
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install pyyaml
+      - run: python contributions/make_contribution_record.py > contributions/RECORD.md
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          title: "Quarterly contribution record"
+          commit-message: "contributions: quarterly record"
+          branch: contribution-record

@@ -1,0 +1,22 @@
+id: template:10-conjecture@1
+template: 10-conjecture@1
+claim_type: multi-outcome
+test: Market to date D on proved / refuted / open; resolved by a check of any submitted
+  proof or counterexample in the named proof assistant with declared trust base
+performer_class: named checker
+success_criterion: Proof or counterexample checks
+outcome_map:
+  confirmed: 'proved: bond on the claimed proof returns'
+  qualified: n/a
+  refuted: 'counterexample checks: bond forfeits; open at D: contracts void'
+validity_checks:
+- trust base declared
+- fidelity check of the formal statement
+adjudicator: <named at registration>
+ethics: not required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 300
+currency: EUR
+expiry: '<D: P = protocol registration date>'

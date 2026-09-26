@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/contribution.schema.json",
+  "title": "Contribution record",
+  "type": "object",
+  "required": [
+    "log_id",
+    "level",
+    "replay_method",
+    "outcome_measure",
+    "contributors",
+    "workflow"
+  ],
+  "properties": {
+    "log_id": {
+      "type": "string"
+    },
+    "level": {
+      "type": "integer"
+    },
+    "replay_method": {
+      "enum": [
+        "deterministic",
+        "seeded",
+        "not_replayable"
+      ]
+    },
+    "seeds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "outcome_measure": {
+      "type": "string"
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "interventions",
+          "outcome_changing"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "interventions": {
+            "type": "integer"
+          },
+          "outcome_changing": {
+            "type": "integer"
+          },
+          "shapley": {
+            "type": "number"
+          },
+          "se": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "required": [
+        "id",
+        "host"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "unlogged_segments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

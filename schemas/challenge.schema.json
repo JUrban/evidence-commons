@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://evidence-commons.org/schemas/challenge.schema.json",
+  "title": "Challenge record",
+  "type": "object",
+  "required": [
+    "id",
+    "target",
+    "defect",
+    "test",
+    "challenger",
+    "filed",
+    "outcome"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "defect": {
+      "type": "string"
+    },
+    "test": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "challenger": {
+      "type": "string"
+    },
+    "stake": {
+      "type": "number"
+    },
+    "filed": {
+      "type": "string"
+    },
+    "outcome": {
+      "enum": [
+        "pending",
+        "sustained",
+        "not_sustained",
+        "unresolved"
+      ]
+    },
+    "adjudicator": {
+      "type": "string"
+    },
+    "decided": {
+      "type": "string"
+    },
+    "reasons": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

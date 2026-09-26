@@ -1,0 +1,25 @@
+id: template:01-benchmark-heldout@1
+template: 01-benchmark-heldout@1
+claim_type: binary
+test: Held-out evaluation on a protected split of the named benchmark, under the stated
+  compute budget, by a resolution service holding sealed test data with an exposure
+  ledger
+performer_class: accredited resolution service with protected evaluation sets
+success_criterion: Held-out score within the stated tolerance of the claimed score,
+  under the stated budget
+outcome_map:
+  confirmed: bond returns with premium
+  qualified: 'score within 2x tolerance: bond rolls to revised claim'
+  refuted: bond forfeits to challenger
+validity_checks:
+- exposure ledger shows no prior evaluation of this model family on this split
+- budget verified from logs
+- seeds and versions pinned
+adjudicator: <named at registration>
+ethics: not required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 1000
+currency: EUR
+expiry: '<P+90D: P = protocol registration date>'

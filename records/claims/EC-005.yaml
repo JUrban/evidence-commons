@@ -1,0 +1,38 @@
+id: EC-005
+statement:
+  text: Resolving the 150 most relied-upon claims in a preferential-attachment reliance graph of 5,000
+    claims flags at least four times as many dependents of false claims as resolving 150 chosen at random.
+  type: binary
+host: org:evidence-commons (repository maintainers)
+provenance:
+- sim/results/sim_cascade.json
+protocol:
+  id: p-EC-005
+  template: 02-computational-reproduction@1
+  claim_type: binary
+  test: Re-run sim/sim_cascade.py
+  performer_class: CI
+  success_criterion: Ratio >= 4 (observed 2306/535 = 4.3)
+  outcome_map:
+    confirmed: claim stands; README account unchanged
+    qualified: claim revised in the master with a revision-record line
+    refuted: claim withdrawn from the master; account revised
+  validity_checks:
+  - procedure as registered
+  - performer independent of the claim's authors where the test is not mechanical
+  adjudicator: repository maintainer not authoring the claim; else an outside reviewer named on the issue
+  ethics: not required
+  screening:
+    service: n/a
+    status: not_required
+  cost_estimate: 50
+  currency: EUR
+  expiry: '2027-12-31'
+contributions: not established
+relies_on:
+- id: EC-004
+  type: method
+status:
+- registered
+licence: CC-BY-4.0
+registered: '2026-09-26'

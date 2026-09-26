@@ -1,0 +1,22 @@
+id: template:08-long-dated-projection@1
+template: 08-long-dated-projection@1
+claim_type: scalar
+test: Consensus marks by an accredited panel at stated intervals; settlement on an
+  intermediate observable named at registration
+performer_class: marking panel; data custodian for settlement
+success_criterion: As marked; final settlement on the named intermediate observable
+outcome_map:
+  confirmed: knowledge bond pays at term
+  qualified: 'marks diverge: unresolved, marks continue'
+  refuted: 'intermediate observable fails: bond forfeits'
+validity_checks:
+- panel members' calibration on the ledger
+- marks published with reasons
+adjudicator: <named at registration>
+ethics: not required
+screening:
+  service: <named at registration>
+  status: pending
+cost_estimate: 5000
+currency: EUR
+expiry: '<term as registered: P = protocol registration date>'

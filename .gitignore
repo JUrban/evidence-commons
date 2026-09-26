@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.egg-info/
+out/
+market.json
+.pytest_cache/
