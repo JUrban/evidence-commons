@@ -18,6 +18,7 @@ Everything below is what a maintainer does once; the repository does the rest.
 - Open the sample challenge CH-001 as an issue, mark it sustained, close it. It shows the pattern.
 - Trigger `contribution-record.yml` manually once (Actions → run workflow) to produce the first `contributions/RECORD.md` PR.
 - Check that `validate`, `build-docs` and `simulation` workflows ran green on the initial push.
+- The `v3.4` tag you pushed triggers `build-docs` to create a GitHub Release with the three PDFs attached. Future versions: bump the version line in the master, add the revision-record entry, `git tag vX.Y && git push --tags`.
 
 ## 3. Phase 1 (weeks)
 

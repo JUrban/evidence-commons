@@ -1,7 +1,9 @@
 name: build-docs
 on:
   push:
-    paths: ["docs/**", "build/**"]
+    branches: [main]
+    tags: ["v*"]
+    paths: ["docs/**", "build/**", ".github/workflows/build-docs.yml"]
   pull_request:
     paths: ["docs/**", "build/**"]
 jobs:
@@ -10,8 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update && sudo apt-get install -y pandoc wkhtmltopdf fonts-dejavu
-      - run: bash build/build.sh docs/master/price-trust-full-proposal.md out/full-proposal.pdf
+      - run: pip install pypdf
+      - run: bash build/build.sh docs/master/price-trust-full-proposal.md out/price-trust-full-proposal.pdf
       - run: bash build/build.sh docs/short/summary-3-page.md out/summary-3-page.pdf
       - run: bash build/build.sh docs/short/explainer-9-page.md out/explainer-9-page.pdf
+      # PDFs from every run are kept as workflow artifacts (they expire; use releases for stable links)
       - uses: actions/upload-artifact@v4
         with: { name: pdfs, path: out/*.pdf }
+      # On a version tag, attach the PDFs to a GitHub Release: the stable, citable copies.
+      - name: Release PDFs
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: out/*.pdf
+          body: |
+            PDFs built from the master document at this tag. The Markdown in `docs/` is the source of truth;
+            these files are derived and are not committed to the repository.

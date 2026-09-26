@@ -18,6 +18,8 @@ The paper let institutions *infer* three things at once — that a result was de
 
 The master is the single source of truth. The short versions are derived from it. Earlier drafts are in `docs/archive/` for history only.
 
+**PDFs** are not committed — they are derived. Stable copies are attached to each [release](../../releases) (built by CI when a version tag is pushed); every CI run also keeps them as workflow artifacts for 90 days.
+
 ## Current state of the design (the maintained account)
 
 *Release 3.4, 26 September 2026.*
