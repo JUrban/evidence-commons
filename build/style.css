@@ -1,4 +1,4 @@
-body { font-family: "DejaVu Serif", Georgia, serif; font-size: 12pt; line-height: 1.5; color: #111; margin: 0; }
+body { font-family: "DejaVu Serif", Georgia, serif; font-size: 11pt; line-height: 1.42; color: #111; margin: 0; }
 h1 { font-family: "DejaVu Sans", Helvetica, sans-serif; font-size: 21pt; margin: 0 0 4pt 0; letter-spacing: -0.2pt; }
 h1 + h2 { font-family: "DejaVu Sans", Helvetica, sans-serif; font-size: 12.5pt; font-weight: normal; color: #444; margin: 0 0 6pt 0; }
 h2 { font-family: "DejaVu Sans", Helvetica, sans-serif; font-size: 14pt; margin: 18pt 0 6pt 0; color: #1a1a1a; page-break-after: avoid; }
